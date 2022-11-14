@@ -16,6 +16,8 @@ export async function getEnrollmentByUser(req: AuthenticatedRequest, res: Respon
 }
 
 export async function postCreateOrUpdateEnrollment(req: AuthenticatedRequest, res: Response) {
+  const { cep } = req.query as Record<string, string>;
+  
   try {
     await enrollmentsService.createOrUpdateEnrollmentWithAddress({
       ...req.body,
